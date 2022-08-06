@@ -28,7 +28,6 @@ import { get, map } from "lodash";
 
 const url = ref("https://randomuser.me/api/?results=100");
 const refetch = ref(false);
-const items = ref([]);
 const { data, isFetching } = useFetch(url, { refetch }).get();
 
 const contacts = reactive({

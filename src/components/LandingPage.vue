@@ -6,7 +6,9 @@
           v-if="contacts.isFetching"
           indeterminate
         ></v-progress-circular>
-        <div v-else class="text-h4">{{ contacts.data.length }} Contact(s)</div>
+        <div v-else-if="contacts.data" class="text-h4">
+          {{ contacts.data.length }} Contact(s)
+        </div>
         <v-spacer></v-spacer>
         <v-text-field label="Search..." outlined clearable></v-text-field>
       </div>

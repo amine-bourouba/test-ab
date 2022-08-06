@@ -25,6 +25,7 @@ import { computed, reactive, ref } from "vue";
 import { useFetch } from "@vueuse/core";
 import ContactCard from "./ContactCard.vue";
 import { get, map } from "lodash";
+import { Contacts } from "../types/Contacts";
 
 const url = ref("https://randomuser.me/api/?results=100");
 const refetch = ref(false);
@@ -33,7 +34,7 @@ const { data, isFetching } = useFetch(url, { refetch }).get();
 const contacts = reactive({
   isFetching,
 
-  data: computed(() => {
+  data: computed<Contacts>(() => {
     try {
       const tempData = JSON.parse(data.value as string);
       if (tempData.results) {

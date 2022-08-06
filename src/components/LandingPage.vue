@@ -1,6 +1,26 @@
 <template>
-  <div>
-    <v-row class="pa-4">
+  <div class="mx-15 px-5">
+    <div class="mt-6 mb-4">
+      <div class="d-flex">
+        <v-progress-circular
+          v-if="contacts.isFetching"
+          indeterminate
+        ></v-progress-circular>
+        <div v-else class="text-h4">{{ contacts.data.length }} Contact(s)</div>
+        <v-spacer></v-spacer>
+        <v-text-field label="Search..." outlined clearable></v-text-field>
+      </div>
+    </div>
+    <v-row v-if="contacts.isFetching" class="mt-5">
+      <v-col v-for="index in 32" :key="index" cols="12" sm="6" md="3">
+        <v-skeleton-loader
+          class="mx-auto"
+          max-width="300"
+          type="card"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+    <v-row v-else class="mt-5">
       <v-col
         v-for="(contact, index) in contacts.data"
         :key="index"
@@ -8,13 +28,7 @@
         sm="6"
         md="3"
       >
-        <v-skeleton-loader
-          v-if="contacts.isFetching"
-          class="mx-auto"
-          max-width="300"
-          type="card"
-        ></v-skeleton-loader>
-        <ContactCard v-else :contact="contact" />
+        <ContactCard :contact="contact" />
       </v-col>
     </v-row>
   </div>

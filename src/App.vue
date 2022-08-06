@@ -4,7 +4,7 @@
       <span style="font-size: 24px">My Contacts App</span>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="mx-15">
       <LandingPage />
     </v-main>
   </v-app>

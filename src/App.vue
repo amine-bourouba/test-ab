@@ -1,29 +1,24 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <span style="font-size: 24px">My Contacts App</span>
+    </v-app-bar>
+
+    <v-main>
+      <LandingPage />
+    </v-main>
+  </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import LandingPage from "./components/LandingPage.vue";
 
 export default Vue.extend({
   name: "App",
+
   components: {
-    HelloWorld,
+    LandingPage,
   },
 });
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
